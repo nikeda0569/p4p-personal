@@ -21,7 +21,7 @@ print("Publishing message: detection or no detction and topic: %s" % (Topic))
 
 # Lineのアクセストークン
 url = "https://notify-api.line.me/api/notify"
-access_token = "<token number>"
+access_token = "<access token number>"
 headers = {'Authorization': 'Bearer ' + access_token}
 
 PIR_OUT_PIN = 11    # pin11
