@@ -41,8 +41,8 @@ def loop():
 				n1 += 1
 
 				# send to MQTT
-				Msg = "no detection"
-				client.publish(Topic,Msg)
+				# Msg = "no detection"
+				# client.publish(Topic,Msg)
 			else:
 				print(str(total_count)+"...Movement detected!")
 				n2 += 1
@@ -53,8 +53,8 @@ def loop():
 				# r = requests.post(url, headers=headers, params=payload,)
 
 				# send to MQTT
-				Msg = "detection"
-				client.publish(Topic,Msg)
+				# Msg = "detection"
+				#client.publish(Topic,Msg)
 
 			total_count += 1
 			sleep(1)
