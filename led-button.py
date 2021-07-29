@@ -22,7 +22,6 @@ def loop():
     while True:
         if GPIO.input(BtnPin) == GPIO.LOW: # Check whether the button is pressed.
             #print ('...led on')
-            
             # Send to Line API
             message = '緊急ボタンの通知を検知しました'
             payload = {'message': message}
