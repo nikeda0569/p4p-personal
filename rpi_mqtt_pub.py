@@ -7,8 +7,8 @@ import requests
 import paho.mqtt.client as mqtt 
 from time import sleep
 
-broker_address = "<ipv4 address>"     #MQTT broker_address
-Topic = "case10"
+broker_address = "test.mosquitto.org"     #MQTT broker_address
+Topic = "kameneko0569"
 
 # publish MQTT
 print("creating new instance")
@@ -19,9 +19,9 @@ client.connect(broker_address) #connect to broker
 
 print("Publishing message: detection or no detction and topic: %s" % (Topic))
 
-# Line‚ÌƒAƒNƒZƒXƒg[ƒNƒ“
+# Line notify
 url = "https://notify-api.line.me/api/notify"
-access_token = "<access token number>"
+access_token = "ICgrmOjf0ekBbbsAiqtRJz8Xy4h3niRafzNlwMg6m55"
 headers = {'Authorization': 'Bearer ' + access_token}
 
 PIR_OUT_PIN = 11    # pin11
@@ -48,7 +48,7 @@ def loop():
 				n2 += 1
 
 				# Send to Line API
-				# message = 'l‚ğŠ´’m‚µ‚Ü‚µ‚½'
+				# message = 'ï¿½lï¿½ï¿½ï¿½ï¿½ï¿½mï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½'
 				# payload = {'message': message}
 				# r = requests.post(url, headers=headers, params=payload,)
 
@@ -60,6 +60,10 @@ def loop():
 			sleep(1)
 			Msg = "detection='" + str(n2) + "' no detection='" + str(n1) + "'"
 		client.publish(Topic,Msg)
+		# Send to Line API
+		message = '1åˆ†é–“ã«' + str(n2) + 'å›æ¤œçŸ¥ã—ã¾ã—ãŸ'
+		payload = {'message': message}
+		r = requests.post(url, headers=headers, params=payload,)
  
 
 def destroy():
