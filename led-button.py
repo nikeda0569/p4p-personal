@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+ 
 import RPi.GPIO as GPIO
 import time
 import requests
@@ -24,9 +24,9 @@ def loop():
             #print ('...led on')
             
             # Send to Line API
-		    message = '緊急ボタンの通知を検知しました'
-		    payload = {'message': message}
-		    r = requests.post(url, headers=headers, params=payload,)
+            message = '緊急ボタンの通知を検知しました'
+            payload = {'message': message}
+            r = requests.post(url, headers=headers, params=payload,)
             
             GPIO.output(LedPin, GPIO.LOW)  # led on
         else:
