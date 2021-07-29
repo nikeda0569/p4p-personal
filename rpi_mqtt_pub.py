@@ -39,33 +39,23 @@ def loop():
 			if GPIO.input(PIR_OUT_PIN) == GPIO.LOW:
 				print(str(total_count) + "...Movement not detected!")
 				n1 += 1
-
-				# send to MQTT
-				# Msg = "no detection"
-				# client.publish(Topic,Msg)
 			else:
 				print(str(total_count)+"...Movement detected!")
 				n2 += 1
-
-				# Send to Line API
-				# message = '�l�����m���܂���'
-				# payload = {'message': message}
-				# r = requests.post(url, headers=headers, params=payload,)
-
-				# send to MQTT
-				# Msg = "detection"
-				#client.publish(Topic,Msg)
 
 			total_count += 1
 			sleep(1)
 			Msg = "detection='" + str(n2) + "' no detection='" + str(n1) + "'"
 		client.publish(Topic,Msg)
+		print(' ')
+		print('1分間に' + str(n2) + '回検知しました')
+		print(' ')
+		print(' ')
 		# Send to Line API
 		message = '1分間に' + str(n2) + '回検知しました'
 		payload = {'message': message}
 		r = requests.post(url, headers=headers, params=payload,)
  
-
 def destroy():
 	GPIO.cleanup()                     # Release resource
 
