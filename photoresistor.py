@@ -2,6 +2,19 @@
 
 import ADC0832
 import time
+import paho.mqtt.client as mqtt 
+
+broker_address = "test.mosquitto.org"     #MQTT broker_address
+Topic = "kameneko0569"
+
+# publish MQTT
+print("creating new instance")
+client = mqtt.Client() #create new instance
+
+print("connecting to broker: %s" % broker_address)
+client.connect(broker_address) #connect to broker
+
+print("Publishing message: luminance value and topic: %s" % (Topic))
 
 def init():
     ADC0832.setup()
@@ -35,6 +48,8 @@ def loop():
         print('1分間の平均値は' + str(int(res_mean)))
         print(' ')
         print(' ')
+        Msg = "luminance value='" + str(int(res_mean)) + "'"
+        client.publish(Topic,Msg)
 
 if __name__ == '__main__':
     init()
