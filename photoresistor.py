@@ -29,8 +29,12 @@ def loop():
             n += 1 
             time.sleep(1)
         
-        res_mean = int(res_total/60)
+        res_mean = res_total/60
+        print(' ')
         print('1分間の平均値は' + str(res_mean))
+        print('1分間の平均値は' + str(int(res_mean)))
+        print(' ')
+        print(' ')
 
 if __name__ == '__main__':
     init()
