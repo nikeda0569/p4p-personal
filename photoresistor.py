@@ -13,6 +13,7 @@ def loop():
         #res = ADC0832.getResult(1)  <-- Use this to read the second channel
         
         total_count = 1
+        n = 1
         res_total = 0
         while total_count <= 60:
             res = ADC0832.getResult() - 80
@@ -21,13 +22,14 @@ def loop():
                 res = 0
             if res > 100:
                 res = 100
-            print ('res = %d' % res)
+            print (str(n) + '回目の輝度 res = %d' % res)
 
             res_total += res
             total_count += 1
+            n += 1 
             time.sleep(1)
         
-        res_mean = res_total/60
+        res_mean = int(res_total/60)
         print('1分間の平均値は' + str(res_mean))
 
 if __name__ == '__main__':
