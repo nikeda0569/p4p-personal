@@ -35,7 +35,7 @@ def loop():
                 res = 0
             if res > 100:
                 res = 100
-            print (str(n) + '回目の輝度 res = %d' % res)
+            print (str(n) + '回目の輝度 res:%d' % res)
 
             res_total += res
             total_count += 1
