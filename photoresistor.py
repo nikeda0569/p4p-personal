@@ -28,7 +28,7 @@ def loop():
         total_count = 1
         n = 1
         res_total = 0
-        while total_count <= 60:
+        while total_count <= 600:
             res = ADC0832.getResult() - 80
            
             if res < 0:
@@ -42,10 +42,10 @@ def loop():
             n += 1 
             time.sleep(1)
         
-        res_mean = res_total/60
+        res_mean = res_total/600
         print(' ')
-        print('1分間の平均値は' + str(res_mean))
-        print('1分間の平均値は' + str(int(res_mean)))
+        print('10分間の平均値は' + str(res_mean))
+        print('10分間の平均値は' + str(int(res_mean)))
         print(' ')
         print(' ')
         Msg = "luminance value='" + str(int(res_mean)) + "'"

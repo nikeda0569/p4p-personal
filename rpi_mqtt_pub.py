@@ -35,7 +35,7 @@ def loop():
 		total_count = 1
 		n1 = 0
 		n2 = 0
-		while total_count <= 60:
+		while total_count <= 600:
 			if GPIO.input(PIR_OUT_PIN) == GPIO.LOW:
 				print(str(total_count) + "...Movement not detected!")
 				n1 += 1
@@ -48,11 +48,11 @@ def loop():
 			Msg = "detection='" + str(n2) + "' no detection='" + str(n1) + "'"
 		client.publish(Topic,Msg)
 		print(' ')
-		print('1分間に' + str(n2) + '回検知しました')
+		print('10分間に' + str(n2) + '回検知しました')
 		print(' ')
 		print(' ')
 		# Send to Line API
-		message = '1分間に' + str(n2) + '回検知しました'
+		message = '10分間に' + str(n2) + '回検知しました'
 		payload = {'message': message}
 		r = requests.post(url, headers=headers, params=payload,)
  
