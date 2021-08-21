@@ -1,6 +1,6 @@
-## p4p-personal
+#### p4p-personal
 
-### Heroku Web Dyno用ファイル
+##### Heroku Web Dyno用ファイル
 Posgresqlよりデーターを読み込みDashのWebフレームワークを使ってセンサーデーターをグラフ表示する。
 
 - test_view.py (Dash用Pythonファイル)
@@ -9,7 +9,7 @@ Posgresqlよりデーターを読み込みDashのWebフレームワークを使�
 - Procfile (Heroku用Procfile)
 - requirements.txt (Heroku用requirements.txt)
 
-### Heroku Worker Dyno用ファイル
+##### Heroku Worker Dyno用ファイル
 mqttの通信を受けてPosgresqlにDatabaseに書き込みを行う。  
 databaseはweb dyno上のposgresqlに書き込みを行う。
 
@@ -19,7 +19,7 @@ databaseはweb dyno上のposgresqlに書き込みを行う。
 - Procfile (web dynoと共通)
 - requirements.txt (web dynoと共通)
 
-### rasberrypi用ファイル
+##### rasberrypi用ファイル
 センサー用のPythonファイル。
 
 - ADC0832.py (ADコンバーター用Pythonファイル)　
