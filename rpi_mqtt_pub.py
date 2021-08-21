@@ -4,7 +4,7 @@ import RPi.GPIO as GPIO
 from time import sleep
 import requests
 
-import paho.mqtt.client as mqtt 
+import paho.mqtt.client as mqtt
 from time import sleep
 
 broker_address = "test.mosquitto.org"     #MQTT broker_address
@@ -15,7 +15,7 @@ print("creating new instance")
 client = mqtt.Client() #create new instance
 
 print("connecting to broker: %s" % broker_address)
-client.connect(broker_address) #connect to broker
+client.connect(broker_address,1883,600) #connect to broker
 
 print("Publishing message: detection or no detction and topic: %s" % (Topic))
 
@@ -55,7 +55,7 @@ def loop():
 		message = '10分間に' + str(n2) + '回検知しました'
 		payload = {'message': message}
 		r = requests.post(url, headers=headers, params=payload,)
- 
+
 def destroy():
 	GPIO.cleanup()                     # Release resource
 
